@@ -38,6 +38,9 @@ jobs:
         ld -m elf_i386 -s -o keyvault keyvault.o
         ls -al
         ./keyvault
+    
+    - name: Read directory again
+      run: |
         ls -al
 
     #- name: 'Az CLI login'
