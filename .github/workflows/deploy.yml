@@ -33,7 +33,7 @@ jobs:
         ls -al
         nasm -v
         ld -v
-    #    nasm -f elf keyvault.asm 
+        nasm -f elf keyvault.asm 
     #    ld -m elf_i386 -s -o keyvault keyvault.o 
     #    ./keyvault
     #    ls -al
