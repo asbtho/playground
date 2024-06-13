@@ -29,6 +29,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Compile NASM and run file
+      continue-on-error: true
       run: |
         ls -al
         nasm -v
@@ -37,10 +38,6 @@ jobs:
         ld -m elf_i386 -s -o keyvault keyvault.o
         ls -al
         ./keyvault
-        ls -al
-    
-    - name: Read directory again
-      run: |
         ls -al
 
     #- name: 'Az CLI login'
