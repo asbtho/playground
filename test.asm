@@ -20,54 +20,14 @@ _start:                  ;tell linker entry point
    ; close the file
    mov eax, 6
    mov ebx, [fd_out]
-    
-   ; write the message indicating end of file write
-   ; mov eax, 4
-   ; mov ebx, 1
-   ; mov ecx, msg_done
-   ; mov edx, len_done
-   ; int  0x80
-    
-   ;open the file for reading
-   ; mov eax, 5
-   ; mov ebx, file_name
-   ; mov ecx, 0             ;for read only access
-   ; mov edx, 0777          ;read, write and execute by all
-   ; int  0x80
-	
-   ; mov  [fd_in], eax
-    
-   ; read from file
-   ; mov eax, 3
-   ; mov ebx, [fd_in]
-   ; mov ecx, info
-   ; mov edx, 256
-   ; int 0x80
-    
-   ; close the file
-   ; mov eax, 6
-   ; mov ebx, [fd_in]
-   ; int  0x80    
-	
-   ; print the info 
-   ; mov eax, 4
-   ; mov ebx, 1
-   ; mov ecx, info
-   ; mov edx, 256
-   ; int 0x80
        
    mov	eax,1             ;system call number (sys_exit)
    int	0x80              ;call kernel
 
 section	.data
-file_name db 'myfile.json',0xa
-msg db 'resource keyVault ',`\u0027`,'Microsoft.KeyVault',`FORWARDSLASH`,'vaults',`\u0040`,'2021-10-01',`\u0027`,' = {',13,10,'name: ',`\u0027`,'keyvaultName',`\u0027`,13,10,'location: ',`\u0027`,'norwayeast',`\u0027`,13,10,'properties: {',13,10,'sku: {',13,10,'family: ',`\u0027`,'A',`\u0027`,13,10,'name: ',`\u0027`,'standard',`\u0027`,13,10,'}',13,10,'tenantId: subscription().tenantId',13,10,'}',13,10,'}',0xa
+file_name db 'keyvault.bicep'
+msg db 'resource keyVault ',`\u0027`,'Microsoft.KeyVault',`\u002f`,'vaults',`\u0040`,'2021-10-01',`\u0027`,' = {',13,10,'name: ',`\u0027`,'keyvaultName',`\u0027`,13,10,'location: ',`\u0027`,'norwayeast',`\u0027`,13,10,'properties: {',13,10,'sku: {',13,10,'family: ',`\u0027`,'A',`\u0027`,13,10,'name: ',`\u0027`,'standard',`\u0027`,13,10,'}',13,10,'tenantId: subscription().tenantId',13,10,'}',13,10,'}',0xa
 len equ  $-msg
-
-; msg_done db 'Written to file', 0xa
-; len_done equ $-msg_done
 
 section .bss
 fd_out resb 1
-; fd_in  resb 1
-; info resb  26
