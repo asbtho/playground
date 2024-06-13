@@ -38,6 +38,10 @@ jobs:
         ls -al
         ./keyvault
         ls -al
+    
+    - name: Read directory again
+      run: |
+        ls -al
 
     #- name: 'Az CLI login'
     #  uses: azure/login@v2
