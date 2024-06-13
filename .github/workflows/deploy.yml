@@ -16,6 +16,10 @@ permissions:
 jobs: 
   deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ${{ github.workspace }}
     environment: ${{ github.event.inputs.environment }}
     steps:
     - name: Setup NASM
@@ -26,10 +30,10 @@ jobs:
 
     - name: Compile NASM and run file
       run: |
+        ls -al
         nasm -f elf keyvault.asm 
         ld -m elf_i386 -s -o keyvault keyvault.o 
         ./keyvault
-        pwd
         ls -al
 
     #- name: 'Az CLI login'
