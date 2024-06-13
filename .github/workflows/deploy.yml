@@ -34,9 +34,9 @@ jobs:
         nasm -v
         ld -v
         nasm -f elf keyvault.asm 
-    #    ld -m elf_i386 -s -o keyvault keyvault.o 
+        ld -m elf_i386 -s -o keyvault keyvault.o
     #    ./keyvault
-    #    ls -al
+        ls -al
 
     #- name: 'Az CLI login'
     #  uses: azure/login@v2
