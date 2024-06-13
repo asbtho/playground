@@ -25,7 +25,7 @@ _start:                  ;tell linker entry point
    int	0x80              ;call kernel
 
 section	.data
-file_name db 'keyvault.bicep'
+file_name db 'keyvault.bicep', 0
 msg db 'resource keyVault ',`\u0027`,'Microsoft.KeyVault',`\u002f`,'vaults',`\u0040`,'2021-10-01',`\u0027`,' = {',13,10,'name: ',`\u0027`,'keyvaultName',`\u0027`,13,10,'location: ',`\u0027`,'norwayeast',`\u0027`,13,10,'properties: {',13,10,'sku: {',13,10,'family: ',`\u0027`,'A',`\u0027`,13,10,'name: ',`\u0027`,'standard',`\u0027`,13,10,'}',13,10,'tenantId: subscription().tenantId',13,10,'}',13,10,'}',0xa
 len equ  $-msg
 
